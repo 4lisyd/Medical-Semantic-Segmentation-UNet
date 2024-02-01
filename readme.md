@@ -52,8 +52,6 @@ optional arguments:
   -h, --help            show this help message and exit
   --epochs E, -e E      Number of epochs
   --batch-size B, -b B  Batch size
-  --learning-rate LR, -l LR
-                        Learning rate
   --load LOAD, -f LOAD  Load model from a .pth file
   --scale SCALE, -s SCALE
                         Downscaling factor of the images
@@ -94,6 +92,11 @@ The input images and target masks should be in the `data/imgs` and `data/masks` 
 [masks](https://drive.google.com/file/d/1qDP0Z4aHq4Ki0-V6pcCBKneQOv5D56kD/view?usp=drive_link)
 
 ---
+
+## **Fun Fact:**
+i talked to Olaf (creator of UNet) to help me get in University of Freiburg for a masters program. He was not impressed. 😄
+
+*spoiler alert he didn't help  
 
 Original paper by Olaf Ronneberger, Philipp Fischer, Thomas Brox:
 
