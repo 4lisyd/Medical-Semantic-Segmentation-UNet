@@ -68,7 +68,9 @@ After training your model and saving it to `MODEL.pth`, you can easily test the 
 
 To predict a single image and save it:
 
-`python predict.py -i image.jpg -o output.jpg`
+`python predict.py -i image.jpg -o output.jpg -m pathToModel`
+
+Choose highest epoch at model/data/checkpoints as your PTH model.
 
 ## Data
 
