@@ -1,9 +1,14 @@
+
+![Preview 1](https://github.com/4lisyd/Medical-Semantic-Segmentation-UNet/assets/43340423/3575af99-8d37-426b-b47e-37e82e32b5c6)
+![Preview 2](https://github.com/4lisyd/Medical-Semantic-Segmentation-UNet/assets/43340423/ad0ee115-1114-4192-9d32-e82f2f97e4aa)
+
+
 # U-Net: Semantic segmentation with PyTorch
 
 <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-v1.13+-red.svg?logo=PyTorch&style=for-the-badge" /></a>
 <a href="#"><img src="https://img.shields.io/badge/python-v3.6+-blue.svg?logo=python&style=for-the-badge" /></a>
+![Input & Output](https://github.com/4lisyd/Medical-Semantic-Segmentation-UNet/assets/43340423/e2b1248e-6d14-42cc-acde-740d2a6f3db0)
 
-![input and output for a random image in the test dataset](https://i.imgur.com/GD8FcB7.png)
 
 ## Quick start
 
