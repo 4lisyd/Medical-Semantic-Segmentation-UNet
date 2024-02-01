@@ -1,27 +1,29 @@
 #!/bin/bash
 
-if [[ ! -f ~/.kaggle/kaggle.json ]]; then
-  echo -n "Kaggle username: "
-  read USERNAME
-  echo
-  echo -n "Kaggle API key: "
-  read APIKEY
+file1_id="1l86uyjZfNGwJnNwrIgN2CIoynjxtXLQc"
+file2_id="1qDP0Z4aHq4Ki0-V6pcCBKneQOv5D56kD"
 
-  mkdir -p ~/.kaggle
-  echo "{\"username\":\"$USERNAME\",\"key\":\"$APIKEY\"}" > ~/.kaggle/kaggle.json
-  chmod 600 ~/.kaggle/kaggle.json
-fi
+# Set the destination folders
+imgs_folder="../data/imgs"
+masks_folder="../data/masks"
 
-pip install kaggle --upgrade
+download_file() {
+    file_id=$1
+    folder=$2
+    confirmation_code=$(curl -sc /tmp/gdrive_confirm "https://drive.google.com/uc?id=${file_id}" | \
+                        awk '/confirm=/{print $NF}')
+    curl -Lb /tmp/gdrive_confirm "https://drive.google.com/uc?id=${file_id}&confirm=${confirmation_code}" \
+         -o "${folder}/file.zip"
+    unzip "${folder}/file.zip" -d "${folder}"
+    rm "${folder}/file.zip"
+}
 
-kaggle competitions download -c carvana-image-masking-challenge -f train_hq.zip
-unzip train_hq.zip
-mv train_hq/* data/imgs/
-rm -d train_hq
-rm train_hq.zip
+# Create folders if they don't exist
+mkdir -p "${imgs_folder}"
+mkdir -p "${masks_folder}"
 
-kaggle competitions download -c carvana-image-masking-challenge -f train_masks.zip
-unzip train_masks.zip
-mv train_masks/* data/masks/
-rm -d train_masks
-rm train_masks.zip
+# Download files
+download_file "${file1_id}" "${imgs_folder}"
+download_file "${file2_id}" "${masks_folder}"
+
+echo "Files downloaded successfully to ${imgs_folder} and ${masks_folder}."
